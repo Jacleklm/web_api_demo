@@ -1,12 +1,13 @@
 // FILEPATH: /home/narwal/storage/github/web_api_demo/server/server.ts
 
 import http from 'http';
+import { IncomingMessage, ServerResponse } from 'http';
 
-const server = http.createServer(async (req, res) => {
+const server = http.createServer(async (req: IncomingMessage, res: ServerResponse) => {
     console.log(new Date().toISOString(), req.method, req.url);
 
     // 设置 CORS 头
-    res.setHeader('Access-Control-Allow-Origin', '*'); // 允许所有域名访问，生产环境中应该设置为特定域名
+    res.setHeader('Access-Control-Allow-Origin', '*');
     res.setHeader('Access-Control-Allow-Methods', 'OPTIONS, GET, POST');
     res.setHeader('Access-Control-Allow-Headers', 'Content-Type, token');
 
